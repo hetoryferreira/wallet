@@ -11,6 +11,7 @@ import lombok.*;
 @NoArgsConstructor
 @Builder
 @Setter
+@Table(name = "balance")
 public class BalanceEntity {
     @Id
     private Long walletId; // reference as Wallet.id
