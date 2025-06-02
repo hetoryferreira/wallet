@@ -9,6 +9,7 @@ import com.recargapay.wallet.interview.response.BalanceResponse;
 import com.recargapay.wallet.interview.response.TransactionResponse;
 import com.recargapay.wallet.interview.service.BalanceService;
 import com.recargapay.wallet.interview.service.TransactionService;
+import com.recargapay.wallet.interview.service.WalletService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -27,11 +28,14 @@ public class TransactionTest {
     private TransactionRepository transactionRepository;
     private TransactionService transactionService;
 
+    private WalletService walletService;
+
     @BeforeEach
     void setUp() {
         balanceService = mock(BalanceService.class);
         transactionRepository = mock(TransactionRepository.class);
-        transactionService = new TransactionService(balanceService, transactionRepository);
+        walletService = mock(WalletService.class);
+        transactionService = new TransactionService(balanceService, transactionRepository,walletService);
     }
 
     @Test
