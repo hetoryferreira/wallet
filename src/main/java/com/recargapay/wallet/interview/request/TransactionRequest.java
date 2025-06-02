@@ -20,7 +20,6 @@ public class TransactionRequest {
     @Positive
     private BigDecimal amount;
     private LocalDateTime timestamp;
-    @Enumerated(EnumType.STRING)
     private TransactionType type;
 
   public TransactionRequest(Long walletId , BigDecimal amount, LocalDateTime timestamp, TransactionType type){

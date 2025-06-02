@@ -33,6 +33,5 @@ public record TransactionResponse(
         LocalDateTime created,
 
         @Schema(description = "Transaction type (e.g., DEPOSIT, WITHDRAW, TRANSFER)", example = "DEPOSIT")
-        @Enumerated(EnumType.STRING)
         TransactionType type
 ) {}

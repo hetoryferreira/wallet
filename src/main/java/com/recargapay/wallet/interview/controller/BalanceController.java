@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 public class BalanceController {
 
     private final BalanceService balanceService;
-    @GetMapping("/{walletId}")
+    @GetMapping("/wallet/{walletId}")
     public ResponseEntity<BalanceResponse> getBalance(
             @Parameter(description = "ID of the wallet", required = true, example = "123")
             @PathVariable Long walletId
