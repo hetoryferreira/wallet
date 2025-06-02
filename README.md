@@ -15,36 +15,20 @@ Built with **Java 17+, Spring Boot, H2, Spring Data JPA, Lombok, and Springdoc O
 
 
 ##                                  Endpoints Overview
-## Wallets
--Method	Path	Description
-- POST	/wallets	Create new wallet
-- GET	/wallets/{walletId}	Get wallet by ID
-- GET	/wallets/by-document/{documentNumber}	Get wallet by document
-
-## Balance
-- Method	Path	Description
-- GET	/balance/{walletId}	Get current wallet balance
-
-## Transactions
-- Method	Path	Description
-- GET	/transactions/wallet/{walletId}	List transactions (filter by dates optional)
-- POST	/transactions/deposit	Deposit into wallet
-- POST	/transactions/withdraw	Withdraw from wallet
-- POST	/transactions/transfer	Transfer funds between wallets
-
----
-
-
-
 
 ## Tech Stack
 
 - Java 21+
-- Spring Boot 3.5
+- Spring Boot 3.2.5
 - Spring Data JPA
 - Lombok
 - Gradle
 - Springdoc OpenAPI (Swagger UI)
+- Acesso ao Swagger:  http://localhost:8080/swagger-ui/index.html
+
+![img_1.png](img_1.png)
+
+
 - JUnit 5 & Mockito
 - H2 (in-memory database)
 - Acesso ao H2 : http://localhost:8080/h2/login.jsp
@@ -59,17 +43,21 @@ Built with **Java 17+, Spring Boot, H2, Spring Data JPA, Lombok, and Springdoc O
 
 ## Requirements
 
-- Java 17 or later
+- Java 21 or later
 - Gradle 7.6+ (wrapper included, no install needed)
 - Internet connection (for dependency download)
 
 ---
 ## Installation
 
+
+1. Execute through the terminal
 ```sh
-git clone https://github.com/seu-usuario/seu-repo-wallet.git
+git clone git@github.com:hetoryferreira/wallet.git
 cd seu-repo-wallet
 ./gradlew clean build
+
+./gradlew bootRun
 
 
 

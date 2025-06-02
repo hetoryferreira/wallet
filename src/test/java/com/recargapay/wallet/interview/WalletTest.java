@@ -120,7 +120,7 @@ public class WalletTest {
 
         when(walletRepository.findById(walletId)).thenReturn(Optional.of(walletEntity));
 
-        WalletResponse response = walletService.getWalletByWalletId(walletId);
+        WalletResponse response = walletService.getWalletById(walletId);
 
         assertNotNull(response);
         assertEquals(walletEntity.getId(), response.id());
@@ -135,7 +135,7 @@ public class WalletTest {
         when(walletRepository.findById(walletId)).thenReturn(Optional.empty());
 
         assertThrows(NotFoundException.class, () ->
-                walletService.getWalletByWalletId(walletId)
+                walletService.getWalletById(walletId)
         );
         verify(walletRepository).findById(walletId);
     }

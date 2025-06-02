@@ -14,6 +14,6 @@ import lombok.*;
 @Table(name = "balance")
 public class BalanceEntity {
     @Id
-    private Long walletId; // reference as Wallet.id
+    private Long walletId;
     private BigDecimal amount;
 }

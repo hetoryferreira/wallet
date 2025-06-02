@@ -69,7 +69,7 @@ public class WalletService {
                 .build();
     }
 
-    public WalletResponse getWalletByWalletId(final Long walletId) {
+    public WalletResponse getWalletById(final Long walletId) {
         log.info("Fetching wallet by walletId '{}'", walletId);
 
         val walletEntity = walletRepository.findById(walletId)

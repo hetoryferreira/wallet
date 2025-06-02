@@ -8,24 +8,12 @@ import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import jakarta.validation.constraints.Positive;
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
 @Builder
-public class TransactionRequest {
-    private Long id;
-    private Long walletId;
-    @Positive
-    private BigDecimal amount;
-    private LocalDateTime timestamp;
-    private TransactionType type;
-
-  public TransactionRequest(Long walletId , BigDecimal amount, LocalDateTime timestamp, TransactionType type){
-          this.walletId =walletId;;
-          this.timestamp= timestamp;
-          this.amount = amount;
-          this.type= type;
-    }
-}
+public record TransactionRequest(
+        Long walletId,
+        @Positive BigDecimal amount
+) {}

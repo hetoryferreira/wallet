@@ -1,5 +1,6 @@
 package com.recargapay.wallet.interview.service;
 
+import com.recargapay.wallet.interview.entity.WalletEntity;
 import com.recargapay.wallet.interview.response.TransactionResponse;
 import com.recargapay.wallet.interview.entity.TransactionEntity;
 import com.recargapay.wallet.interview.entity.TransactionType;
@@ -26,10 +27,13 @@ public class TransactionService {
 
     private final BalanceService balanceService;
     private final TransactionRepository transactionRepository;
+    private final WalletService walletService;
 
     @Transactional
     public void deposit(final Long walletId, final BigDecimal amount, final TransactionType type) {
         log.info("Starting deposit of {} into walletId={}", amount, walletId);
+
+        walletService.getWalletById(walletId);
 
         if (amount.compareTo(BigDecimal.ZERO) <= 0)
             throw new BadRequestException("Deposit amount must be greater than 0");
@@ -42,6 +46,8 @@ public class TransactionService {
     @Transactional
     public void withdraw(final Long walletId, final BigDecimal amount, final TransactionType type) {
         log.info("Starting withdrawal of {} from walletId={}", amount, walletId);
+
+        walletService.getWalletById(walletId);
 
         if (amount.compareTo(BigDecimal.ZERO) <= 0)
             throw new BadRequestException("Withdrawal amount must be greater than 0");

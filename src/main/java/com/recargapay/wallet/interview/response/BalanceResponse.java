@@ -7,7 +7,6 @@ import java.math.BigDecimal;
 public record BalanceResponse(
         @Schema(description = "Wallet ID", example = "123")
         Long walletId,
-
         @Schema(description = "Current wallet balance", example = "1000.00")
         BigDecimal amount
 ) {}
